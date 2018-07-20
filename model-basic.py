@@ -14,7 +14,7 @@ from keras import backend as K
 import cv2
 import numpy as np
 import json
-np.random.seed(07) # 0bserver07 for reproducibility
+np.random.seed(0) # 0bserver07 for reproducibility
 
 data_shape = 360*480
 

@@ -13,7 +13,6 @@ import os
 DataPath = './CamVid/'
 data_shape = 360*480
 
-
 def load_data(mode):
     data = []
     label = []
@@ -29,13 +28,16 @@ def load_data(mode):
 
 
 train_data, train_label = load_data("train")
-train_label = np.reshape(train_label,(367,data_shape,12))
+#train_label = np.reshape(train_label,(367,data_shape,12))
+train_label = np.reshape(train_label,(14,data_shape,12))
 
 test_data, test_label = load_data("test")
-test_label = np.reshape(test_label,(233,data_shape,12))
+#test_label = np.reshape(test_label,(233,data_shape,12))
+test_label = np.reshape(test_label,(10,data_shape,12))
 
 val_data, val_label = load_data("val")
-val_label = np.reshape(val_label,(101,data_shape,12))
+#val_label = np.reshape(val_label,(101,data_shape,12))
+val_label = np.reshape(val_label,(5,data_shape,12))
 
 
 np.save("data/train_data", train_data)

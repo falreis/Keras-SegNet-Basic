@@ -56,7 +56,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_1", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -129,7 +129,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_2", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -202,7 +202,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_3", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -275,7 +275,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_4", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -331,7 +331,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_5", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -390,7 +390,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_6", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -449,7 +449,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_7", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
@@ -508,7 +508,7 @@
       "config": {
         "gamma_regularizer": null, 
         "name": "batchnormalization_8", 
-        "epsilon": 1e-05, 
+        "epsilon": 1e-4, 
         "trainable": true, 
         "mode": 0, 
         "beta_regularizer": null, 
