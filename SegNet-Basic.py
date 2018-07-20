@@ -1,8 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 import os
-
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import datetime
 
 os.environ['KERAS_BACKEND'] = 'theano'
 #os.environ['THEANO_FLAGS']='mode=FAST_RUN,device=gpu0,floatX=float32,optimizer=None'
@@ -22,6 +21,7 @@ import numpy as np
 import json
 np.random.seed(7) # 0bserver07 for reproducibility
 
+print(datetime.datetime.now())
 
 data_shape = 360*480
 
@@ -47,8 +47,8 @@ filepath="weights.best.hdf5"
 checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 callbacks_list = [checkpoint]
 
-nb_epoch = 1 #100
-batch_size = 1 #6
+nb_epoch = 25 #100
+batch_size = 3 #6
 
 # Fit the model
 history = segnet_basic.fit(train_data, train_label, callbacks=callbacks_list, batch_size=batch_size, nb_epoch=nb_epoch,
@@ -56,4 +56,6 @@ history = segnet_basic.fit(train_data, train_label, callbacks=callbacks_list, ba
 
 # This save the trained model weights to this file with number of epochs
 segnet_basic.save_weights('weights/model_weight_{}.hdf5'.format(nb_epoch))
+
+print(datetime.datetime.now())
 
