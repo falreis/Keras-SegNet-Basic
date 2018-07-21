@@ -1,3 +1,7 @@
+## usage (to val set)
+#python camvid_data_loader.py --set=val
+
+
 from __future__ import absolute_import
 from __future__ import print_function
 
@@ -7,6 +11,7 @@ import itertools
 
 from helper import *
 import os
+import argparse
 
 # Copy the data to this dir here in the SegNet project /CamVid from here:
 # https://github.com/alexgkendall/SegNet-Tutorial
@@ -22,44 +27,22 @@ def load_data(mode):
     for i in range(len(txt)):
         data.append(np.rollaxis(normalized(cv2.imread(os.getcwd() + txt[i][0][7:])),2))
         label.append(one_hot_it(cv2.imread(os.getcwd() + txt[i][1][7:][:-1])[:,:,0]))
-        print('.',end='')
+        #print('.',end='')
     return np.array(data), np.array(label)
 
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--set", type = str  )
+args = parser.parse_args()
+set_name = args.set
 
-train_data, train_label = load_data("train")
-#train_label = np.reshape(train_label,(367,data_shape,12))
-train_label = np.reshape(train_label,(100,data_shape,12))
+print(set_name)
 
-test_data, test_label = load_data("test")
-#test_label = np.reshape(test_label,(233,data_shape,12))
-test_label = np.reshape(test_label,(100,data_shape,12))
+data, label = load_data(set_name)
+len_data = len(data)
+label = np.reshape(label,(len_data,data_shape,12))
 
-val_data, val_label = load_data("val")
-#val_label = np.reshape(val_label,(101,data_shape,12))
-val_label = np.reshape(val_label,(50,data_shape,12))
+np.save(("data/CamVid/" + set_name + "_data"), data)
+np.save(("data/CamVid/" + set_name + "_label"), label)
 
-
-np.save("data/train_data", train_data)
-np.save("data/train_label", train_label)
-
-np.save("data/test_data", test_data)
-np.save("data/test_label", test_label)
-
-np.save("data/val_data", val_data)
-np.save("data/val_label", val_label)
-
-# FYI they are:
-# Sky = [128,128,128]
-# Building = [128,0,0]
-# Pole = [192,192,128]
-# Road_marking = [255,69,0]
-# Road = [128,64,128]
-# Pavement = [60,40,222]
-# Tree = [128,128,0]
-# SignSymbol = [192,128,128]
-# Fence = [64,64,128]
-# Car = [64,0,128]
-# Pedestrian = [64,64,0]
-# Bicyclist = [0,128,192]
-# Unlabelled = [0,0,0]
+print('Done')
